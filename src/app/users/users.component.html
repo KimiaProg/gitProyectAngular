@@ -1,0 +1,16 @@
+<p>users works!</p>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>URL de github</th>
+    </tr>
+    <input []>
+    <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td><img width="60px" src="{{user.avatar_url}}"></td>
+        <td>{{user.login}}</td>
+        <td><a href="{{user.html_url}}">{{user.html_url}}</a></td>
+    </tr>
+</table>
