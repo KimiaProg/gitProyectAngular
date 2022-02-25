@@ -8,11 +8,15 @@ import { UsersComponent } from './users/users.component';
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
 {path: 'gitUsers', component: UsersComponent},
-{path: 'contact', component: ContactComponent}
+{path: 'contact', component: ContactComponent},
+{path: 'gitUsers/:id', component: UsersComponent},
+{path: '', component: HomeComponent},
+{path: '**', component: HomeComponent}
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
 
-  public url:string="";
-  constructor(private http:HttpClient) { 
-    this.url= "https://api.github.com/users";
+  protected url:string = 'https://api.github.com/users';
+
+  constructor(private http:HttpClient) {
   }
 
   obtener(): Observable<any>{
