@@ -9,15 +9,20 @@ import { GitUserDTO } from '../dto/GitUserDTO';
 })
 export class UsersComponent implements OnInit {
 
-  public users: Array<GitUserDTO>;
+  @Input() public users: Array<GitUserDTO>;
   public userName: string;
   public usersMostrados: Array<GitUserDTO>;
+  public id:number;
 
   constructor(private _userService: UsersService, private actRout: ActivatedRoute, private _router: Router) {
     this.users = [];
     this.userName = '';
+    this.id= this.actRout.snapshot.params['id'];
   }
 
+  public getUsers():Array<GitUserDTO>{
+    return this.users;
+  }
   ngOnInit(): void {
     this.obtenerUsuarios();
   }
@@ -25,7 +30,6 @@ export class UsersComponent implements OnInit {
   borrar(id: number) {
     this.users.splice(this.users.findIndex(el => el.id == id), 1);
     this.usersMostrados.splice(this.users.findIndex(el => el.id == id), 1);
-    //this.usersMostrados=this.users;
   }
 
 
@@ -37,7 +41,7 @@ export class UsersComponent implements OnInit {
 
   }
 
-  private async obtenerUsuarios() {
+  private obtenerUsuarios() {
     this._userService.obtener().subscribe(data => {
       if (this.userName == '') {
         this.usersMostrados = data;
@@ -59,6 +63,20 @@ export class UsersComponent implements OnInit {
 
       });
     }
+
+  }
+
+  detalles(id:number){
+    this._router.navigate(['/gitUsers/' + id]);
+  }
+
+  onBack(){
+    this._router.navigate(['/gitUsers/']);
+
+  }
+
+  goToRepo(){
+    this._router.navigate(['/repos/'+this.id]);
 
   }
 
