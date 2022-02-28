@@ -16,7 +16,7 @@ export class ContactComponent implements OnInit {
   public mensajes:Array<Mensaje>;
   public url:string;
 
-  constructor(public fb:FormBuilder, private http:HttpClient, private _mailto:MailtoService) {
+  constructor(public fb:FormBuilder, private _mailto:MailtoService) {
     this.title="Contact with us";
     this.mensajes=[];
     this.url="https://mailthis.to/kimia_ehsani@yahoo.com";

@@ -8,7 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { UsersComponent } from './users/users.component';
 import { HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ReposComponent } from './users/repos/repos.component';
+import { ReposComponent } from './repos/repos.component';
 
 @NgModule({
   declarations: [

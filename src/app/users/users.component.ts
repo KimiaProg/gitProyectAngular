@@ -9,7 +9,7 @@ import { GitUserDTO } from '../dto/GitUserDTO';
 })
 export class UsersComponent implements OnInit {
 
-  @Input() public users: Array<GitUserDTO>;
+  public users: Array<GitUserDTO>;
   public userName: string;
   public usersMostrados: Array<GitUserDTO>;
   public id:number;

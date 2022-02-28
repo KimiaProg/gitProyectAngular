@@ -12,7 +12,13 @@ export class MailtoService {
   constructor(private http:HttpClient) {
   }
 
-  contactar(formValue:Object):Observable<any>{
-    return this.http.post(this.url, formValue);
+  contactar(formValue:Object){
+    this.http.post(this.url, formValue).subscribe(
+      (data) => {
+        console.log(data);
+      }
+    ), (error: any) => {
+      console.log(error);
+    };
   }
 }
