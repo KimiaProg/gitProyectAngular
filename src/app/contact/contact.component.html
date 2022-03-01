@@ -1,1 +1,76 @@
-<p>contact works!</p>
+<h2 class="my-5 text-center">{{title}}</h2>
+<div class="container">
+
+  <form (ngSubmit)="enviar()" [formGroup]="myForm" target="_top" class="row g-3">
+    <div class="col-md-4 position-relative">
+      <label for="name" class="form-label">First name</label>
+      <input formControlName="Name" type="text" class="form-control">
+      <span class="text-danger" *ngIf="myForm.get('Name')?.touched && myForm.get('Name')?.hasError('required')">This
+        input is required</span>
+    </div>
+    <div class="col-md-4 position-relative">
+      <label for="lastname" class="form-label">Last Name</label>
+      <input formControlName="LastName" type="text" class="form-control">
+      <span class="text-danger"
+        *ngIf="myForm.get('LastName')?.touched && myForm.get('LastName')?.hasError('required')">This input is
+        required</span>
+
+    </div>
+    <div class="col-md-4 position-relative">
+      <label for="phone" class="form-label">Phone</label>
+      <input formControlName="Phone" type="number" class="form-control">
+      <span class="text-danger" *ngIf="myForm.get('Phone')?.touched && myForm.get('Phone')?.hasError('required')">This
+        input is required</span>
+    </div>
+    <div class="col-md-6 position-relative">
+      <label for="email" class="form-label">Email</label>
+      <input formControlName="Email" type="text" class="form-control">
+      <span class="text-danger" *ngIf="myForm.get('Email')?.touched && myForm.get('Email')?.hasError('required') ">This
+        input is required</span>
+      <span class="text-danger" *ngIf="myForm.get('Email')?.hasError('pattern') ">This input should be an email
+        format</span>
+
+    </div>
+
+    <div class="col-md-6 position-relative">
+      <label for="subject" class="form-label">Subject</label>
+      <input formControlName="Subject" type="text" class="form-control">
+      <span class="text-danger"
+        *ngIf="myForm.get('Subject')?.touched && myForm.get('Subject')?.hasError('required') ">This input is
+        required</span>
+    </div>
+
+    <div class="col-md-6 position-relative">
+      <label for="validationTooltip03" class="form-label">Message</label>
+      <textarea formControlName="Message" class="form-control"></textarea>
+      <span class="text-danger"
+        *ngIf="myForm.get('Message')?.touched && myForm.get('Message')?.hasError('required') ">This input is
+        required</span>
+
+    </div>
+    <div class="col-md-6 position-relative">
+      <label for="depart" class="form-label">Department</label>
+      <div class="form-check">
+        <input formControlName="Department" type="radio" class="row mx-5 form-check-input" value="Informatic">
+        <label class="form-check-label" for="Department">
+          Informatic
+        </label>
+      </div>
+      <div class="form-check">
+
+        <input formControlName="Department" type="radio" class="row mx-5 form-check-input" value="Marketing">
+        <label class="form-check-label" for="Department">
+          Marketing
+        </label>
+      </div>
+      <div class="form-check">
+
+        <input formControlName="Department" type="radio" class="row  mx-5 form-check-input" value="Administration">
+        <label class="form-check-label" for="Department">
+          Administration
+        </label>
+      </div>
+    </div>
+    <button class="btn btn-primary" [disabled]="myForm.invalid">Submit</button>
+  </form>
+</div>

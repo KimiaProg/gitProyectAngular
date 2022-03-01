@@ -1,0 +1,22 @@
+<p>repos works!</p>
+{{id}}
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>URL of github</th>
+        <th>URL of Followers</th>
+        <th>URL of repositories</th>
+        <th>Type</th>
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let repo of repos">
+      <tr>
+        <td>{{repo.id}}</td>
+        <td>{{repo.name}}</td>
+      </tr>
+    </tbody>
+</table>

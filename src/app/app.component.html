@@ -1,13 +1,77 @@
 <head>
   <link rel="stylesheet" href="./app.component.css">
 </head>
-<h1>{{title}}</h1>
-<nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['home']" [routerLinkActive]="['activado']">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['gitUsers']" [routerLinkActive]="['activado']">GitUsers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['contact']" [routerLinkActive]="['activado']">Contact</a>
+      </li>
 
-  <a [routerLink]="['home']" [routerLinkActive]="['activado']">Home </a>
-  <a [routerLink]="['gitUsers']" [routerLinkActive]="['activado']">gitUsers </a>
-  <a [routerLink]="['contact']" [routerLinkActive]="['activado']">Contact </a>
-
+    </ul>
+  </div>
 </nav>
 
 <router-outlet></router-outlet>
+
+<div class="bg-dark row text-light text-center py-4" id="footer">
+<div class="col-4"><h1>GitHub</h1></div>
+<div class="col">
+  Product<br>
+
+      Features<br>
+      Security<br>
+      Team<br>
+      Enterprise<br>
+      Customer stories<br>
+      The ReadME Project<br>
+      Pricing<br>
+      Resources<br>
+      Roadmap<br>
+
+  </div>
+<div class="col">
+  Platform<br>
+
+      Developer API<br>
+      Partners<br>
+      Atom<br>
+      Electron<br>
+      GitHub Desktop<br>
+
+  </div>
+<div class="col">
+  Support<br>
+
+      Docs<br>
+      Community Forum<br>
+      Professional Services<br>
+      Learning Lab<br>
+      Status<br>
+      Contact GitHub<br>
+
+  </div>
+<div class="col">
+  Company<br>
+
+      About<br>
+      Blog<br>
+      Careers<br>
+      Press<br>
+      Inclusion<br>
+      Social Impact<br>
+      Shop<br>
+
+  </div>
+
+</div>
