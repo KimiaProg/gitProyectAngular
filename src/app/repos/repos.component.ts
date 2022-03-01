@@ -26,26 +26,23 @@ export class ReposComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerUsus();
-    this.setRepos();
 
   }
 
    private async obtenerUsus() {
     var service= this._userService.obtener();
-
-     const lastUsers= await lastValueFrom(service);
-
-     /*lastUsers.subscribe(data => {
-      return this.users = data;
-    })*/
-  }
+     var usus:Array<GitUserDTO>= await lastValueFrom(service);
+     this.setRepos(usus);
+    }
 
 
-  async setRepos() {
-    var url = this.users.find(el => el.id == this.id)?.repos_url || '';
+   setRepos(usus: Array<GitUserDTO>) {
+    var url = usus.find(el => el.id == this.id)?.repos_url || '';
     this._repoService.obtener(url).subscribe(data => {
       console.log(data);
-      //this.repos.push(new RepoDTO(data.id, data.name, data.visibility, data.language, data.allow_forking, data.created_at, data.updated_at, data.html_url));
+      data.forEach((el: RepoDTO ) => {
+        this.repos.push(new RepoDTO(el.id, el.name, el.visibility, el.language, el.allow_forking, el.created_at, el.updated_at, el.html_url));
+      });
     });
   }
 

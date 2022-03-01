@@ -29,7 +29,7 @@ export class UsersComponent implements OnInit {
 
   borrar(id: number) {
     this.users.splice(this.users.findIndex(el => el.id == id), 1);
-    this.usersMostrados.splice(this.users.findIndex(el => el.id == id), 1);
+    this.usersMostrados.splice(this.usersMostrados.findIndex(el => el.id == id), 1);
   }
 
 
@@ -75,9 +75,5 @@ export class UsersComponent implements OnInit {
 
   }
 
-  goToRepo(){
-    this._router.navigate(['/repos/'+this.id]);
-
-  }
 
 }

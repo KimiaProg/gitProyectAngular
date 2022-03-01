@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormControl,FormGroup,Validators } from '@angular/forms';
 import { Mensaje } from './Mensaje';
 import { HttpClient } from '@angular/common/http';
-import { MailtoService } from '../mailto.service';
 
 @Component({
   selector: 'app-contact',
@@ -14,12 +13,10 @@ export class ContactComponent implements OnInit {
   public title:string;
   public myForm:FormGroup;
   public mensajes:Array<Mensaje>;
-  public url:string;
 
-  constructor(public fb:FormBuilder, private _mailto:MailtoService) {
+  constructor(public fb:FormBuilder) {
     this.title="Contact with us";
     this.mensajes=[];
-    this.url="https://mailthis.to/kimia_ehsani@yahoo.com";
    }
 
   ngOnInit(): void {
@@ -37,8 +34,6 @@ export class ContactComponent implements OnInit {
   enviar(){
     console.log(this.myForm.value);
     this.mensajes.push(this.myForm.value);
-    this._mailto.contactar(this.myForm.value);
-    //this.myForm.reset();
-
-}
+    location.href = 'mailto:kimia_ehsani@yahoo.com';
+  }
 }
