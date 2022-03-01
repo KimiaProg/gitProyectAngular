@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GitUserDTO } from '../dto/GitUserDTO';
@@ -20,9 +20,6 @@ export class UsersComponent implements OnInit {
     this.id= this.actRout.snapshot.params['id'];
   }
 
-  public getUsers():Array<GitUserDTO>{
-    return this.users;
-  }
   ngOnInit(): void {
     this.obtenerUsuarios();
   }
@@ -33,20 +30,14 @@ export class UsersComponent implements OnInit {
   }
 
 
-  buscar(nombreUsu: string = '') {
-    if (nombreUsu != '') {
-      this.userName = nombreUsu;
-    }
+  buscar() {
     this.cambiaUsuarioMostrados();
-
   }
 
   private obtenerUsuarios() {
     this._userService.obtener().subscribe(data => {
-      if (this.userName == '') {
         this.usersMostrados = data;
         return this.users = data;
-      }
     })
   }
 
@@ -64,10 +55,6 @@ export class UsersComponent implements OnInit {
       });
     }
 
-  }
-
-  detalles(id:number){
-    this._router.navigate(['/gitUsers/' + id]);
   }
 
   onBack(){

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormControl,FormGroup,Validators } from '@angular/forms';
-import { Mensaje } from './Mensaje';
-import { HttpClient } from '@angular/common/http';
+import { Mensaje } from '../dto/MessageDTO';
 
 @Component({
   selector: 'app-contact',
@@ -24,7 +23,7 @@ export class ContactComponent implements OnInit {
       Name: new FormControl('', [Validators.required]),
       LastName: new FormControl('',[Validators.required]),
       Phone: new FormControl('', [Validators.required]),
-      Email: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9]*@[a-zA-Z0-9]*\.[a-zA-Z]*$')]),
+      Email: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+$/)]),
       Subject: new FormControl('', [Validators.required]),
       Message: new FormControl('', [Validators.required]),
       Department: new FormControl('', [Validators.required])
@@ -32,7 +31,6 @@ export class ContactComponent implements OnInit {
   }
 
   enviar(){
-    console.log(this.myForm.value);
     this.mensajes.push(this.myForm.value);
     location.href = 'mailto:kimia_ehsani@yahoo.com';
   }

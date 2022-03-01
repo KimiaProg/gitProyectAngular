@@ -1,0 +1,6 @@
+div.spinner{
+  background: rgba(120, 120, 120, 0.2);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
